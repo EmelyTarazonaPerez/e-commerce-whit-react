@@ -1,0 +1,23 @@
+.form {
+    background-color: #fff;
+    padding: 50px;
+    justify-content: center;
+}
+
+.form_container {
+    margin-top: 3em;
+    display: grid;
+    gap:20px;
+}
+
+.form_inpu {
+    border-radius: 10px;
+    border: 2px solid #876CEB;
+    padding: 5px;
+}
+
+.icono_star {
+    font-size: 20px;
+    padding-left: 5px;
+    cursor: pointer;
+}
