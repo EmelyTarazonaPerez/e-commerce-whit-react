@@ -1,106 +1,70 @@
 import './home.css'
-import imagen1 from '../../img/imagen1.png'
-import imagen2 from '../../img/imagen2.png'
-import imagen3 from '../../img/imagen3.png'
-import Categories from '../../components/categorias'
-import audifonos from '../../img/Audifonos.avif'
-import { useContext } from 'react'
-import { Slideshow, Slide } from '../../components/slideshow'
-import Count from '../../components/count'
-import SubEncabezado from '../../components/encabezado'
+import imagen1 from '../../img/imagen1.jpg'
+import imagen2 from '../../img/imagen2.jpg'
+import imagen3 from '../../img/imagen3.jpg'
+import Categories from '../../components/products/Categories'
+import React, { useContext } from 'react'
+import { Slideshow, Slide } from '../../components/static/SlideShow'
 import { MyContext } from '../../context'
-import { Link } from 'react-router-dom'
+import Valores from '../../components/static/Values'
+import RedesSociales from '../../components/static/EndPage'
+import ComponentSales from '../../components/products/Sales'
+import ComponentNewProducts from '../../components/products/NewProducts'
+import styled from 'styled-components'
 
 const Home = () => {
 
-    const {productos} = useContext(MyContext)
-
+    const { productoSales, productosKnows } = useContext(MyContext)
 
     return (
-        <main className='home'>
+        <React.Fragment>
             <div className='container'>
-                <section>
+                <ContenedorHv>
                     <Slideshow>
                         <Slide>
-                            <a href="wwww.youtube.com">
-                                <img src={imagen1} alt='imagen' />
-                            </a>
+                            <img className='imagen_slide_principal' src={imagen1} alt='imagen' />
                         </Slide>
                         <Slide>
-                            <a href="wwww.youtube.com">
-                                <img src={imagen2} alt='imagen' />
-                            </a>
+                            <img className='imagen_slide_principal' src={imagen2} alt='imagen' />
                         </Slide>
                         <Slide>
-                            <a href="wwww.youtube.com">
-                                <img src={imagen3} alt='imagen' />
-                            </a>
+                            <img className='imagen_slide_principal' src={imagen3} alt='imagen' />
                         </Slide>
                     </Slideshow>
-                </section>
-                <section>
-                    <SubEncabezado>
-                        <h1 className='title'>Categorias</h1>
-                    </SubEncabezado>
-                    <Categories
-                        title="Categorias"
-                        Tecnologia='Tecnologia'
-                        Moda='Moda'
-                        Muebles='Muebles' />
-                </section>
-                <section>
-                    <SubEncabezado>
-                        <h1 className='title'>Tecnologia</h1>
-                    </SubEncabezado>
-                    <div className='slideshow-productos'>
-                        <Slideshow >
-                            {productos.map(producto => (
-                                <Slide producto key={producto.Id_producto} >
-                                    <div className="card card_contenido">
-                                        <img src={producto.imagen} className="card-img-top" alt="..." />
-                                        <div className="card-body card_borde">
-                                            <h5 className="card-title">{producto.nombre}</h5>
-                                            <p className="card-text">Price: ${producto.precio}</p>
-                                            <p className="card-text categoria-card"><small className="text-muted">{producto.categoria}</small></p>
-                                            <Link to={`/details/${producto.Id_producto}`}><button className='btn btn-warning btn-detalles'> Detalle</button></Link>
-                                        </div>
-                                    </div>
-                                </Slide>
-                            ))}
-                        </Slideshow>
-                    </div>
-                </section>
-                <section>
-                    <SubEncabezado>
-                        <h1 className='title'>Producto destacado</h1>
-                    </SubEncabezado>
-                    <div className='row bg-white p-4'>
-                        <div className='col contenedor-imagen-destacado'>
-                            <img className='imagen-destacado' src={audifonos} alt='imagen' />
+                    <Categories />
+                </ContenedorHv>
+                <ContenedorHv>
+                    <ComponentSales
+                        productoSales={productoSales}
+                    />
+                    <div className='row'>
+                        <div className='anuncio-izq col-lg-6 col-md-12'>
+                            <div>
+                                <h1>40% sales</h1>
+                                <p>productos tecnologicos</p>
+                            </div>
+
                         </div>
-                        <div className='col contenedor-info'>
-                            {/*detalle del producto*/}
-                            <h3>Combo 2 Pares de Audífonos Inalámbricos L21 Pro</h3>
-                            <small className='bg-info descuento-producto'>Hoy -19%</small>
-                            <hr></hr>
-                            <p >Precio:<strong className='letter-price'> $ 150.000</strong></p>
-                            <p className='title-envios'>Envio gratis a nivel nacional</p>
-                            {/*contador*/}
-                            <div> <Count /></div>
-                            {/*botones de compras*/}
-                            <button className='btn btn-warning'>
-                                Añadir a carrito
-                            </button>
-                            <button className='btn btn-comprar'>
-                                Comprar  ahora
-                            </button>
+                        <div className='anuncio-der col-lg-6 col-md-12'>
+                            <div>
+                                <h1>40% sales</h1>
+                                <p>Productos para el hogar</p>
+                            </div>
                         </div>
                     </div>
-                </section>
-              
+                </ContenedorHv>
+                <ComponentNewProducts
+                    productosKnows={productosKnows}
+                />
+                <Valores />
             </div>
-        </main>
+            <RedesSociales />
+        </React.Fragment>
     )
 }
 
+const ContenedorHv = styled.div`
+height: 100vh;
+
+`
 export default Home

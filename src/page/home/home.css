@@ -1,20 +1,18 @@
-.encabezado{
+.encabezado {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
 }
+
 .home {
     max-width: 10000px;
     font-family: 'Roboto', sans-serif;
-    padding: 25px;
     overflow: hidden;
+    padding-bottom: 25px;
 }
 
-.App {
-    background-color: #fdfefe;
-}
 
-.link{
+.link {
     text-decoration: none;
     color: #000;
 }
@@ -33,15 +31,31 @@
     max-width: 1374px !important;
 }
 
-.title {
+.titulo-destacado {
+    display: inline-block;
     font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 27px;
-    color: rgba(19, 25, 35, 0.75);
+    margin-top: 63px;
+    font-size: 23px;
+    position: relative;
+    text-align: center;
+    font-weight: 800;
 }
 
+.titulo-destacado::after,
+.titulo-destacado::before {
+    content:'';
+    position: absolute;
+    width: 250px;
+    height: 3px;
+    background-color: black;
+    top:0.6em
+}
+.titulo-destacado::before{
+    left: -302px;
+}
+.titulo-destacado::after{
+    right: -302px;
+}
 @media (max-width: 600px) {
     .title {
         margin-top: 24px;
@@ -54,50 +68,49 @@
         text-align: center;
         color: rgba(19, 25, 35, 0.75);
     }
-
-
 }
 
+.contenedor-principal {
+    height: 754px;
+}
+
+.imagen_slide_principal {
+    height: 462px;
+    border-radius: 30px;
+    width: 100%;
+}
 
 /*aqui estan los estilos para los controles de los slides*/
 .controles-svg {
-    padding: 15px;
-    background-color: #d7cfe9;
+    padding: 10px;
+    background-color: #e4e3e6;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px;
     color: #f3f2f5;
-    border-radius: 25px;
+    border-radius: 100%;
 }
 
 
 /*estilos de cartas de productos */
 
-.card_contenido{
+
+.card_contenido {
     border: none !important;
 }
 
-.card-title{
+.card-title {
     font-size: 15px;
+    font-weight: 700;
+    font-family: 'IBM Plex Sans', sans-serif;
+    ;
 }
 
-.imagen-detail{
-    width: 450px;
-    display: flex;
-    height: 450px;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-}
-
-.imagen-destacado{
+.imagen-destacado {
     width: 350px;
     height: 350px;
     justify-content: center;
     align-items: center;
 }
 
-.contenedor-imagen-destacado{
-    display: flex;
-    justify-content: center;
-}
 .productos {
     color: #FFFFFF;
     font-weight: 700;
@@ -132,37 +145,55 @@
 }
 
 
-.slideshow-productos{
-    background-color: #e9ecef;
-    padding-top: 25px;
-    padding-bottom: 25px;
-}   
+.slideshow-productos {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
 
-.btn-detalles{
+.btn-detalles {
+    width: 90PX;
+    padding: 4px !important;
     font-size: 15px;
-    width: max-content !important;
-    padding: 5px !important;
-    margin: 0px !important;
+    border-radius: 5px;
+    BACKGROUND-COLOR: #ff725e !important;
+    color: aliceblue;
+}
+
+.btn-color {
+    background-color: #ff725e;
+    color: #FFF;
+}
+
+.btn-color-detalle {
+    background-color: #ffc107;
+    color: #FFF;
 }
 
 /*estilos de seccion de detalle */
+.box-sin-margin {
+    margin: 0px !important;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
 
-.contenedor-info{
+.contenedor-info {
     align-self: center;
 }
+
 .letter-price {
     font-size: 20px;
 }
 
 .text-counter {
-       margin-right: 28px;
-       margin-bottom: 0px !important;
-       margin-left: 5px;
-       width: 55px;
-       align-items: center;
-       text-align: center;
-       display: flex;
-       justify-content: center;
+    margin-right: 28px;
+    margin-bottom: 0px !important;
+    margin-left: 5px;
+    width: 55px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .title-envios {
@@ -173,6 +204,7 @@
 .seccion-counter {
     display: inline-flex;
     align-self: center;
+    margin: 10px 0px;
 }
 
 .button-counter {
@@ -198,7 +230,7 @@
     justify-content: center;
 }
 
-.star-opinion{
+.star-opinion {
     width: 25px;
 }
 
@@ -210,20 +242,26 @@
 }
 
 /* botones de compra */
-.btn{
-    margin: 20px 36px 0px 0px;
-    width: 256px;
+.btn {
+    width: 154px  !important;
     color: #fff;
     font-weight: 700;
+    margin: 5px;
     padding: 10px;
+    height: max-content;
 }
 
-.btn-comprar{
-    background-color: #876CEB !important;
+.btn-comprar {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.btn-cart {
+    background-color: #ff725e;
 }
 
 /* icono de valores de la empresa*/
-.icono-valores{
+.icono-valores {
     height: 50px;
     width: 50px;
     margin: 10px;
@@ -247,10 +285,27 @@
     max-width: max-content;
     margin-top: 100px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    
+
 }
 
-.input-group-text{
-    background-color: #876CEB !important;
-    color: #FFF;
+.anuncio-izq{
+    display: flex;
+    background-color: #ff725e;
+    color: #f3f2f5;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+    height: 150px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.anuncio-der{
+    display: flex;
+    background-color: rgb(65, 70, 75);
+    color: #f3f2f5;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+    height: 150px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

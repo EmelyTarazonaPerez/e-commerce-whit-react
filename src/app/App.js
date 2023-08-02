@@ -1,12 +1,16 @@
 import React from "react";
 import { MyProvider } from '../context';
 import AppIU from './AppIU';
+import AuthProvider from "../auth/AuthProvider";
 
 function App() {
   return (
-    <MyProvider>
-      <AppIU />
-    </MyProvider>
+    <AuthProvider>
+      <MyProvider>
+        <AppIU />
+      </MyProvider>
+    </AuthProvider>
+
   );
 }
 

@@ -1,0 +1,37 @@
+.input-checkbox {
+    height: 33px;
+    display: flex;
+    border-radius: 6px;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkbox {
+    appearance: none;
+    -webkit-appearence: none;
+    height: 23px;
+    width: 23px;
+    background-color: #d5d5d5;
+    cursor: pointer;
+    display: flex;
+    outline: none;
+}
+
+.label{
+    color: #4c4c4c;
+    cursor:pointer;
+}
+
+
+
+.checkbox:hover{
+    background-color: #a5a5a5;
+}
+
+.checkbox:checked{
+    background-color: #0083e8;
+    content: 'f00c';
+    background-image: 'f00c';
+}
+

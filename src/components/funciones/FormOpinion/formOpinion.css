@@ -1,0 +1,52 @@
+.form {
+    background-color: #fff;
+    padding: 50px;
+    justify-content: center;
+}
+
+.form_container {
+    margin-top: 3em;
+    display: grid;
+    gap:20px;
+}
+
+.form_input {
+    border: none;
+    background-color: #00ff00;
+    color: #198754;
+    font-weight: 700;
+    width: 114px;
+    margin-right: 13px;
+    border-radius: 5px;
+}
+
+.icono_star {
+    font-size: 20px;
+    padding-left: 5px;
+    cursor: pointer;
+}
+
+.textarea { 
+    border: 3px solid #876CEB;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.input-group-text{
+    font-size: 15px !important;
+}
+
+.form_title {
+    text-align: center !important;
+}
+
+.form_paragraph {
+    text-align: center !important;
+
+}
+
+.boton-opinion{
+    margin: 18px !important;
+    width: 174px !important;
+}
+

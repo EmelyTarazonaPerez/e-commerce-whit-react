@@ -1,0 +1,17 @@
+.icono_red_social{
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+}
+
+
+.bloque_redes_sociales{
+    padding: 10px;
+    background-color: rgb(65, 70, 75);
+    color: aliceblue;
+}
+
+.input-suscribirse {
+    border: none;
+    border-radius: 7px;
+}

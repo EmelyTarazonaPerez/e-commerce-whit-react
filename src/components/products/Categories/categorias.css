@@ -1,0 +1,107 @@
+.link_categories{
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: #f76540;
+    font-weight: 700;
+    text-decoration: none;
+}
+.categorias{
+    position: relative;
+    top: -234px;
+}
+.contenedor_bloque {
+    display: flex;
+    width: 100%;
+    height: max-content;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.imagen_categoria {
+    width: 167px;
+    height: 167px;
+    border-radius: 5px;
+   
+    transition: transform 0.25s;
+
+}
+
+.imagen_categoria:hover{
+    transform: scale(1.1);
+}
+
+.bloque {
+    font-family: 'Roboto', sans-serif;
+    margin: 14px;
+    display: flex;
+    overflow: hidden;
+    border-radius: 150px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.categories {
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+    color: #000000;
+}
+
+.titulo_categorias{
+    font-family: 'Roboto', sans-serif;
+    font-size: 27px;
+    color: #000000;
+    margin-top: 23px;
+    text-align: center;
+}
+
+.titulo-categoria{
+    font-size: 15px;
+}
+
+@media (max-width: 600px) {
+    .contenedor_bloque {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+    }
+
+    .bloque {
+        display: flex;
+        width: 300px;
+        height: 111px;
+        margin-bottom: 14px;
+        background: #F0739F;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 25px;
+        justify-content: space-between;
+    }
+
+    .categories {
+        margin: 35px;
+        font-family: 'Poppins', sans-serif;
+        font-style: normal;
+        font-size: 21px;
+        line-height: 38px;
+        display: flex;
+        align-items: center;
+        color: #FCFCFC;
+    }
+
+    .imagen_categoria {
+        margin: 20px;
+        height: 65px;
+        width: 65px;
+        mix-blend-mode: normal;
+        border-radius: 100px;
+    }
+
+    .moda {
+        background-color: #876CEB;
+    }
+
+    .muebles {
+        background-color: #669CFF;
+        margin-bottom: 25px;
+    }
+}

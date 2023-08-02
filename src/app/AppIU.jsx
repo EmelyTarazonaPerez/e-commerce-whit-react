@@ -1,29 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import NavbarStore from '../components/navbar';
-import Cart from '../page/cart/carrito';
-import Login from '../page/login';
-import Home from '../page/home';
-import RedesSociales from '../components/finalPag';
-import ListProducts from "../components/listProducts";
-import ProductoDetails from "../page/details";
-import Valores from "../components/Valores";
+import NavbarStore from "../components/static/navbar";
+import Home from "../page/home"
+import ProtectedRouter from "../auth/ProtectedRouter"
+import Login from "../page/login";
+import Singnup from "../page/singnup"
+import ListProducts from "../components/products/ListProducts"
+import ProductoDetails from "../page/details"
+import './App.css'
+import StarRating from "../Star";
 
 function AppIU() {
     return (
-        <div className="App">
-                <BrowserRouter>
-                    <Routes>
-                        <Route path='/' element={<NavbarStore />}>
-                            <Route path='home' element={<Home />} />
-                            <Route path='cart' element={<Cart />} />
-                            <Route path='login' element={<Login />} />
-                            <Route path='ListProducts' element={<ListProducts />} />
-                            <Route path='details/:id' element={<ProductoDetails />} />
-                        </Route>
-                    </Routes>                 
-                </BrowserRouter>
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path='/' element={<NavbarStore />}>
+                    <Route path='home' element={<Home />} />
+                    <Route path='cart' element={<ProtectedRouter />} />
+                    <Route path='login' element={<Login />} />
+                    <Route path='singup' element={<Singnup />} />
+                    <Route path='ListProducts' element={<ListProducts />} />
+                    <Route path='details/:id' element={<ProductoDetails />} />
+                    
+                    <Route path='StarRating' element={<StarRating />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
     );
 }
 

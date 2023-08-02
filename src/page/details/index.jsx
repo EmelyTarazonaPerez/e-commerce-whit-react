@@ -1,67 +1,63 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ItemDetail, Contenedortext } from '../../components/ItemDetail';
-import SubEncabezado from '../../components/encabezado';
-import { Slide, Slideshow } from '../../components/slideshow';
+import { ItemDetail } from '../../components/funciones/ItemDetail';
+import { Contenedortext } from '../../components/funciones/ItemDetail';
+import { Slide, Slideshow } from '../../components/static/SlideShow';
 import { MyContext } from '../../context';
-import OpinionContenedor from '../../components/opinion';
-import FormOpinion from '../../components/formOpinion';
+import FormOpinion from '../../components/funciones/FormOpinion';
+import { useAuth } from '../../auth/AuthProvider';
+import RedesSociales from '../../components/static/EndPage';
 
 const ProductoDetails = () => {
+    const {
+        productos,
+        openModal,
+        setPuntuacion,
+        puntuacion,
+    } = useContext(MyContext)
 
-
-    const { productos, openModal, setOpenModal } = useContext(MyContext)
     const { id } = useParams();
+
+    const auth = useAuth()
+    console.log(auth.iduser)
+
+    const productoId = productos.map(item => id.includes(item.Id_producto) && (
+        console.log(item)
+
+    ))
+
 
 
     return (
-        <div className='container '>
-            <SubEncabezado>
-                <h1 className='title'>Detalle de producto</h1>
-            </SubEncabezado>
-            <ItemDetail id={id} />
-            <Contenedortext opiniones>
-                <OpinionContenedor
-                    openModal={openModal}
-                    setOpenModal={setOpenModal}
-                />
-            </Contenedortext>
+        <>
+        <div className='container'>
+            <ItemDetail id={id} 
+            productoId = {productoId}
+            />
             <section className='p-4'>
-                <SubEncabezado>
-                    <h1 className='title'>Productos que te pueden interesar</h1>
-                </SubEncabezado>
+                <h2 className=''>More products</h2>
                 <div className='slideshow-productos'>
-                    <Slideshow >
-                        {productos.map(producto => (
-                            <Slide producto key={producto.Id_producto} >
-                                <div className="card card_contenido">
-                                    <img src={producto.imagen} className="card-img-top" alt="..." />
-                                    <div className="card-body card_borde">
-                                        <h5 className="card-title">{producto.nombre}</h5>
-                                        <p className="card-text">Price: ${producto.precio}</p>
-                                        <p className="card-text categoria-card"><small className="text-muted">{producto.categoria}</small></p>
-                                        <Link to={`/details/${producto.Id_producto}`}><button className='btn btn-warning btn-detalles'> Detalle</button></Link>
-                                    </div>
-                                </div>
-                            </Slide>
-                        ))}
-                    </Slideshow>
                 </div>
             </section>
             {openModal && (
                 <section className="form_cortina">
                     <div className='open_form'>
                         <Contenedortext >
-                            <FormOpinion />
+                            <FormOpinion
+                                id={id}
+                                setPuntuacion={setPuntuacion}
+                                puntuacion={puntuacion}
+                            />
                         </Contenedortext>
                     </div>
                 </section>
-
-            )
-
-
-            }
+            )}
+            
         </div>
+        <RedesSociales/>
+
+        </>
+        
     );
 }
 
