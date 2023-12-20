@@ -65,3 +65,8 @@
 .form-control {
     margin-bottom: 15px;
 }
+
+.messageError {
+    color: #e75643;
+    text-align: center;
+}

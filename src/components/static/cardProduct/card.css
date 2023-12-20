@@ -1,0 +1,30 @@
+.container_image {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+}
+
+.container_image div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.img_product {
+    height: 200px;
+    width: 200px;
+    background-color: red;
+}
+
+.object {
+    object-fit: cover;
+}
+
+.icon_dollar {
+    font-weight: 400;
+    color: #ff725e;
+}
+
+.card-body {
+    text-align: center;
+}

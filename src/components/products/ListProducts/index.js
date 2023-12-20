@@ -13,16 +13,22 @@ const ListProducts = () => {
     const [numberProductList, setNumberProductList] = useState(0);
     const [productosSeleccionados, setProductosSeleccionados] = useState({
         All: false,
-        tecnologia: false,
-        muebles: false,
-        accesorios: false,
-        ropa: false,
+        technology: false,
+        furniture: false,
+        accesories: false,
+        clothes: false,
     });
 
     const handleOnCheckbox = e => {
+        console.log(e.target.checked)
+        console.log(e.target.value)
+
         setProductosSeleccionados({ ...productosSeleccionados, [e.target.value]: e.target.checked })
+        console.log(productosSeleccionados)
         if (e.target.checked) {
+            console.log('hola')
             setFiltro([...filtro, e.target.value])
+            console.log(filtro.length)
         } else {
             setFiltro(filtro.filter(fil => fil !== e.target.value))
         }
@@ -37,7 +43,7 @@ const ListProducts = () => {
             setNumberProductList(productos.length)
             return
         }
-        const productosFiltrados = productos.filter(item => filtro.includes(item.filtro))
+        const productosFiltrados = productos.filter(item => filtro.includes(item.category.name))
         setNumberProductList(productosFiltrados.length);
 
     }, [filtro])
@@ -47,57 +53,57 @@ const ListProducts = () => {
             <div className='container container-main'>
                 <Row>
                     <ContenedorFiltro className='container'>
-                        <h5>Selectionar filtro</h5>
+                        <h5>Check </h5>
                         <div class="mt-4 form-check">
                             <input
                                 className="form-check-input"
                                 onChange={handleOnCheckbox}
-                                name='tecnologia'
-                                value='tecnologia'
+                                name='technology'
+                                value='technology'
                                 type='checkbox'
-                                id='tecnologia'
+                                id='technology'
                             />
-                            <label class="form-check-label" htmlFor="tecnologia">
-                                Tecnologia
+                            <label class="form-check-label" htmlFor="technology">
+                                technology
                             </label>
                         </div>
                         <div class="form-check">
                             <input
                                 className="form-check-input"
                                 onChange={handleOnCheckbox}
-                                name='ropa'
-                                value='ropa'
+                                name='clothes'
+                                value='clothes'
                                 type='checkbox'
-                                id='ropa'
+                                id='clothes'
                             />
-                            <label class="form-check-label" htmlFor="ropa">
-                                Ropa
+                            <label class="form-check-label" htmlFor="clothes">
+                            clothes
                             </label>
                         </div>
                         <div class="form-check">
                             <input
                                 className="form-check-input"
                                 onChange={handleOnCheckbox}
-                                name='muebles'
-                                value='muebles'
+                                name='furniture'
+                                value='furniture'
                                 type='checkbox'
-                                id='muebles'
+                                id='furniture'
                             />
-                            <label class="form-check-label" htmlFor="muebles">
-                                Muebles
+                            <label class="form-check-label" htmlFor="furniture">
+                            furniture
                             </label>
                         </div>
                         <div class="form-check">
                             <input
                                 className="form-check-input"
                                 onChange={handleOnCheckbox}
-                                name='accesorios'
-                                value='accesorios'
+                                name='accesories'
+                                value='accesories'
                                 type='checkbox'
-                                id='accesorios'
+                                id='accesories'
                             />
-                            <label class="form-check-label" htmlFor="accesorios">
-                                Accesorios
+                            <label class="form-check-label" htmlFor="accesories">
+                                accesories
                             </label>
                         </div>
                     </ContenedorFiltro>
@@ -105,14 +111,13 @@ const ListProducts = () => {
                     <ListaProducto className='datosfiltrados'>
                         {
                             productos.map(item =>
-                                (filtro.length === 0 || filtro.includes(item.filtro)) && (
+                                (filtro.length === 0 || filtro.includes(item.category.name)) && (
                                     <div className="card card_contenido">
-                                        <img src={item.imagen} className="card-img-top" alt="..." />
+                                        <img src={item.image} className="card-img-top" alt="..." />
                                         <div className="card-body">
-                                            <p>{item.filtro}</p>
-                                            <h5 className="card-title">{item.nombre}</h5>
-                                            <p>$ {item.precio}</p>
-                                            <Link to={`/details/${item.Id_producto}`}>
+                                            <h5 className="card-title">{item.name}</h5>
+                                            <p>$ {item.price}</p>
+                                            <Link to={`/details/${item.idproducto}`}>
                                                 <button className='btn-warning btn-detalles btn-color-detalle'>Detail</button>
                                             </Link>
                                         </div>
@@ -150,7 +155,7 @@ const ListaProducto = styled.div`
     border-radius: 5px;
 
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(4,1fr);
     gap: 32px;
 
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
