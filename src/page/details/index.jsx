@@ -1,63 +1,59 @@
-import React, { useContext, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { useContext, useState, useEffect } from 'react';
 import { ItemDetail } from '../../components/funciones/ItemDetail';
-import { Contenedortext } from '../../components/funciones/ItemDetail';
-import { Slide, Slideshow } from '../../components/static/SlideShow';
+import { ContainerImg } from '../../components/funciones/ItemDetail';
 import { MyContext } from '../../context';
 import FormOpinion from '../../components/funciones/FormOpinion';
-import { useAuth } from '../../auth/AuthProvider';
 import RedesSociales from '../../components/static/EndPage';
+import { useParams } from 'react-router-dom';
 
 const ProductoDetails = () => {
     const {
-        productos,
         openModal,
         setPuntuacion,
         puntuacion,
     } = useContext(MyContext)
 
     const { id } = useParams();
+    const [productoId, setProductoId] = useState()
 
-    const auth = useAuth()
-    console.log(auth.iduser)
+    useEffect(() => {
+        const productoID = async () => {
+            await fetch('http://localhost:5000/api/v1/products/' + id)
+                .then(res => res.json())
+                .then(res => setProductoId(res))
+        }
+        productoID()
+    }, [id])
 
-    const productoId = productos.map(item => id.includes(item.Id_producto) && (
-        console.log(item)
-
-    ))
-
-
-
+    console.log(productoId)
     return (
         <>
-        <div className='container'>
-            <ItemDetail id={id} 
-            productoId = {productoId}
-            />
-            <section className='p-4'>
-                <h2 className=''>More products</h2>
-                <div className='slideshow-productos'>
-                </div>
-            </section>
-            {openModal && (
-                <section className="form_cortina">
-                    <div className='open_form'>
-                        <Contenedortext >
-                            <FormOpinion
-                                id={id}
-                                setPuntuacion={setPuntuacion}
-                                puntuacion={puntuacion}
-                            />
-                        </Contenedortext>
+            <div className='container'>
+                <ItemDetail
+                    productoId={productoId}
+                    id={id}>
+                </ItemDetail>
+                <section className='p-4'>
+                    <h2 className=''>More products</h2>
+                    <div className='slideshow-productos'>
                     </div>
                 </section>
-            )}
-            
-        </div>
-        <RedesSociales/>
-
+                 { openModal && (
+                    <section className="form_cortina">
+                        <div className='open_form'>
+                            <ContainerImg >
+                                <FormOpinion
+                                    id={id}
+                                    setPuntuacion={setPuntuacion}
+                                    puntuacion={puntuacion}
+                                />
+                            </ContainerImg>
+                        </div>
+                    </section>
+                 ) }
+            </div>
+            <RedesSociales />
         </>
-        
     );
 }
 

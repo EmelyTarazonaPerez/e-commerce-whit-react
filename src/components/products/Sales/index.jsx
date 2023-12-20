@@ -2,6 +2,7 @@ import React from "react"
 import { Slide, Slideshow } from "../../static/SlideShow"
 import { Link } from "react-router-dom";
 import Encabezado from "../../static/Header"
+import CardProduct from "../../static/cardProduct/cardProduct";
 
 function ComponentSales({ productoSales }) {
     return (
@@ -12,16 +13,14 @@ function ComponentSales({ productoSales }) {
             <div className='slideshow-productos'>
                 <Slideshow >
                     {productoSales.map(item => (
-                        <Slide producto key={item.Id_producto} >
-                            <div className="card card_contenido">
-                                <img src={item.imagen} className="card-img-top" alt="..." />
-                                <div className="card-body">
-                                    <p>{item.filtro}</p>
-                                    <h5 className="card-title">{item.nombre}</h5>
-                                    <p>${item.precio}</p>
-                                    <Link to={`/details/${item.Id_producto}`}><button className='btn-warning btn-detalles btn-color-detalle'>Detail</button></Link>
-                                </div>
-                            </div>
+                        <Slide producto key={item.idproducto} >
+                            <CardProduct
+                                id={item.idproducto}
+                                image={item.image}
+                                category={item.category.name}
+                                name={item.name}
+                                price={item.price}
+                            />
                         </Slide>
                     ))}
                 </Slideshow>

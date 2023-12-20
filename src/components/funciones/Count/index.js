@@ -19,7 +19,7 @@ const Count = () => {
 
     return (
         <div className='seccion-counter'>
-            <strong className='text-counter'>Cantidad</strong>
+            <strong className='text-counter'>Quantity</strong>
             <div className='contenedor-counter'>
                 <button className='button-counter' onClick={suma}>+</button>
                 <p className='counter'>{count}</p>

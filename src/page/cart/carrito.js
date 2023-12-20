@@ -47,14 +47,14 @@ const Cart = () => {
                             </thead>
                             <tbody>
                                 {cartList.map(cartItem => (
-                                    <tr key={cartItem.Id_pedido}>
+                                    <tr key={cartItem.id}>
                                         <td><img className='imagen-cart' src={cartItem.imagen} alt='imagen' /></td>
-                                        <td className='td-infor'>{cartItem.nombre}</td>
-                                        <td className='td-infor'>{cartItem.cantidad}</td>
-                                        <td className='td-infor'>{cartItem.precio}</td>
+                                        <td className='td-infor'>{cartItem.name}</td>
+                                        <td className='td-infor'>{cartItem.quantity}</td>
+                                        <td className='td-infor'>{cartItem.price}</td>
                                         <td className='td-infor container-action'>
-                                            <button className='button-cart' onClick={() => handleDelete(cartItem.Id_pedido)}><FontAwesomeIcon className='delete-icono' icon={faXmarkSquare} /></button>
-                                            <button className='btn-pagar'>PAY</button>
+                                            <button className='btn btn-danger' onClick={() => handleDelete(cartItem.id)}><FontAwesomeIcon className='delete-icono' icon={faXmarkSquare} /></button>
+                                            <button className='btn btn-success'>PAY</button>
                                         </td>
                                     </tr>
                                 ))}

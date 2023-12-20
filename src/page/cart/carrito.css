@@ -12,7 +12,7 @@
 .delete-icono{
     font-size: 30px;
     margin-right: 5px;
-    color:rgb(255, 1, 1);
+    color:rgb(255, 255, 255);
 }
 
 .button-cart{
@@ -31,6 +31,7 @@
 .container-action {
     display: flex;
     align-items: center;
+    flex-direction: column;
 }
 
 .title-pag {
@@ -43,9 +44,6 @@
     margin-top: 67px;
 }
 
-.border-table{
-    border: solid;
-}
 
 .imagen-cart{
     width: 100px;
@@ -53,6 +51,8 @@
 }
 
 thead, tbody, tfoot, tr, td, th {
+    text-align: center;
+    padding: 30px;
     border-color: inherit;
     border-style: none;
     border-width: 0;
@@ -60,4 +60,8 @@ thead, tbody, tfoot, tr, td, th {
 
 .td-infor{
     padding-top: 45px;
+}
+
+.border-table{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }

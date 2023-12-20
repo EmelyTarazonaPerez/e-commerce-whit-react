@@ -120,10 +120,8 @@
 }
 
 .card-img-top {
-    width: 200px;
     height: 200px;
     align-self: center;
-    ;
 }
 
 .box-ofertas {
@@ -186,14 +184,8 @@
 }
 
 .text-counter {
-    margin-right: 28px;
-    margin-bottom: 0px !important;
     margin-left: 5px;
-    width: 55px;
-    align-items: center;
     text-align: center;
-    display: flex;
-    justify-content: center;
 }
 
 .title-envios {
@@ -257,6 +249,7 @@
 }
 
 .btn-cart {
+    width: max-content !important;
     background-color: #ff725e;
 }
 

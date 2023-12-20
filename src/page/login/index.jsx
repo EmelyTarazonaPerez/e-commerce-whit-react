@@ -8,39 +8,38 @@ import logo from '../../img/logo.png'
 
 
 const Login = () => {
-    const [correo, setCorreo] = useState("")
-    const [contraseña, setContraseña] = useState("")
+    const [gmail, setGmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [error, setError] = useState("")
 
     const auth = useAuth()
 
     async function handleSumit(e) {
-        try {
-            e.preventDefault()
-            await fetch(`${API_URL}/login`, {
-                method: "POST",
-                headers: {
-                    "Content-type": "application/json; charset=UTF-8"
-                },
-                body: JSON.stringify({
-                    correo,
-                    contraseña
-                })
+        e.preventDefault()
+        await fetch(`${API_URL}/login`, {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            },
+            body: JSON.stringify({
+                gmail,
+                password
             })
-                .then(res => res.json())
-                .then(res => auth.setIdUser(res.user[0].id_usuario))
-            auth.setAuthenticated(true)
-        } catch (error) {
-            console.log(error)
-        }
+        })
+            .then(res => res.json())
+            .then(lectura => auth.setIdUser(lectura.user.id_usuario))
+            .then(res => auth.setAuthenticated(true))
+            .catch(error => setError("you are not registered"))
     }
+    console.log(auth.isAuthenticated)
     if (auth.isAuthenticated) {
-        return <Navigate to="/cart" />
+        return <Navigate to="/home" />
     }
 
     return (
-        <section className="container vh-100">
+        <section className="container ">
             <div className='row'>
-                <div className='vh-100 container-img col-md-4 col-lg-6'>
+                <div className='container-img col-md-4 col-lg-6'>
                     <img className="fondo" src={fondo} alt='fondo' />
                 </div>
                 <form className="form col-md-6 col-lg-6 container-form" onSubmit={handleSumit}>
@@ -54,20 +53,21 @@ const Login = () => {
                             <input
                                 className="form-control"
                                 type="text"
-                                value={correo}
+                                value={gmail}
                                 required
-                                onChange={(e) => setCorreo(e.target.value)}></input>
+                                onChange={(e) => setGmail(e.target.value)}></input>
 
                             <label className="form-label">Password</label>
                             <input
                                 className="form-control"
                                 type="password"
-                                value={contraseña}
+                                value={password}
                                 required
-                                onChange={(e) => setContraseña(e.target.value)}></input>
+                                onChange={(e) => setPassword(e.target.value)}></input>
 
                             <button className='btn-login btn btn-primary'>Login</button>
-                            <p className='m-4'>If you are not registered, <Link to='/singup'>register here</Link></p>
+                            <p className='m-4 messageError'>{error}</p>
+                            <p className='m-4 text-align-center'>If you are not registered, <Link to='/singup'>register here</Link></p>
                         </div>
 
                     </div>

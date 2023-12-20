@@ -16,6 +16,8 @@ const Home = () => {
 
     const { productoSales, productosKnows } = useContext(MyContext)
 
+    console.log(productoSales)
+
     return (
         <React.Fragment>
             <div className='container'>
@@ -65,6 +67,5 @@ const Home = () => {
 
 const ContenedorHv = styled.div`
 height: 100vh;
-
 `
 export default Home

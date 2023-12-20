@@ -6,21 +6,27 @@ import { useAuth } from "../../../auth/AuthProvider";
 function SendACart({ imagen, precio, nombre, cantidad, idproducto }) {
 
     const auth = useAuth()
-    const [bodyObjetoCart, ] = useState({
 
+    const objeto = {
         imagen: imagen,
-        nombre: nombre,
-        precio: precio,
-        cantidad: cantidad,
+        name: nombre,
+        price: precio,
+        quantity: cantidad,
         idusuario: auth.iduser,
         idproducto: idproducto,
-    });
+    }
+
+
+    console.log('component enviar a carritos' + auth.iduser)
+
+
+    console.log(objeto)
 
     const InsertCard = async () => {
         await fetch('http://localhost:5000/api/v1/cart', {
             mode: 'cors',
             method: 'POST',
-            body: JSON.stringify(bodyObjetoCart),
+            body: JSON.stringify(objeto),
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
             }
@@ -30,8 +36,13 @@ function SendACart({ imagen, precio, nombre, cantidad, idproducto }) {
     }
 
     const message = () => {
-        alert('producto guardado')
-        InsertCard()
+        if(auth.iduser) {
+            alert('saved product')
+            InsertCard()
+        }
+        else {
+            alert('please register to add products to cart')
+        }
     }
 
     return (

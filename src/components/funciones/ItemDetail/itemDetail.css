@@ -1,7 +1,7 @@
 .fixed-element {
     position: fixed;
     right: 240px;
-    top: 110px;
+    top: 107px;
 }
 
 
@@ -22,17 +22,17 @@
 
 }
 
-.score_opinion{
+.score_opinion {
     font-style: oblique;
     font-size: 12px;
 }
 
-.icono_user{
+.icono_user {
     font-size: 30px;
     margin: 19px;
 }
 
-.fecha_registro{
+.fecha_registro {
     font-size: small;
     margin: 0px
 }
@@ -41,56 +41,78 @@
     margin: 0px !important;
 }
 
-.text-precio{
+.text-precio {
     font-size: 32px;
     color: #0cc16d;
 }
 
-.name-product{
+.name-product {
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 700;
 }
 
-.bg-icon-review{
+.bg-icon-review {
     position: absolute;
-    bottom: 31px;
-    left: 48px;
-    padding: 15px;
-    background-color: #f1f1f1;
+    bottom: 25px;
+    left: 25px;
     border-radius: 46px;
 }
 
-.icono-review{
+.icono-review {
     color: rgb(250, 0, 0);
     font-size: 44px;
 }
-.icono-review:hover{
+
+.icono-review:hover {
     font-size: 50px;
 }
 
-.imagen-detail{
-    width: 640px;
-    height:640px;
+.imagen-detail {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
-.contenedor-imagen-destacado{
-    position: relative;
+.contenedor-imagen-destacado {
+    display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 2px;
+}
+
+.contenedor-imagen-destacado div {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #607d8b17;
+    border-radius: 10px;
+    width: 640px;
+    height: 640px;
 }
 
 .bg-icon-review:hover {
     content: "a";
-    background-color: #876CEB;
 }
 
-  .bg-icon-review[tooltip-dir="left"]:after {
+.bg-icon-review[tooltip-dir="left"]:after {
     left: auto;
     right: 110%;
-  }
+}
 
-  .avatar-svg{
+.avatar-svg {
     width: 50px;
     height: 50px;
     border-radius: 100%;
     margin-right: 15px;
-  }
+}
+
+p,
+b {
+    font-size: 15px;
+}
+
+hr {
+    margin: 3px !important;
+}
