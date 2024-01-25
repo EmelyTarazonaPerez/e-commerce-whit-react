@@ -1,5 +1,5 @@
 # Description of the app
-On-line shop.
+On-line shop
 
   ## Case of use :writing_hand:	
   - User register
