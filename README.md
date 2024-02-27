@@ -2,7 +2,7 @@
 On-line shop
 
   ## Case of use :writing_hand:	
-  - User register
+  - User register.
   - Shopping cart
   - Product filtering
   - Product selection
