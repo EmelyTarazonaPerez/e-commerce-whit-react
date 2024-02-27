@@ -4,7 +4,7 @@ On-line shop
   ## Case of use :writing_hand:	
   - User register.
   - Shopping cart.
-  - Product filtering
+  - Product filtering.
   - Product selection
 
 ## presentation video :point_down:
