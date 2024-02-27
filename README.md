@@ -3,7 +3,7 @@ On-line shop
 
   ## Case of use :writing_hand:	
   - User register.
-  - Shopping cart
+  - Shopping cart.
   - Product filtering
   - Product selection
 
